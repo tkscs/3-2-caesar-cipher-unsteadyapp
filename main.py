@@ -21,14 +21,17 @@ print(f"ascii letter at position #97: {ascii_letter}")
 # ----- Your Algorithm -----
 
 # Your task is to encrypt this secret message into ciphertext
-plaintext = "This is a secret message."
+plaintext = "this is a secret message."
 
 # Initialize your ciphertext an empty string
 ciphertext = ""
-for character in plaintext:
+for character in plaintext.lower():
     # do something to the character to encrypt it
     # YOUR CODE HERE
-    encrypted_character = "a" # CHANGE THIS!
+    try:
+        encrypted_character = alphabet[(alphabet.index(character) + 1)%26] # CHANGE THIS!
+    except ValueError:
+        encrypted_character = character
     ciphertext += encrypted_character
 
-print(f"{ciphertext = }")
+print(f"{ciphertext}")
